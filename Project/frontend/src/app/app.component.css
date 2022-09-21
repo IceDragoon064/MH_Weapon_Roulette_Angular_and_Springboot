@@ -1,0 +1,16 @@
+.center{
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.centerText{
+  text-align: center;
+}
+
+#divBorder{
+  width: 60%;
+  border: 3px solid black;
+  padding: 10px;
+}
