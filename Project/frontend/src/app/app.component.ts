@@ -4,19 +4,15 @@ import { FrontendServiceService } from './services/frontend-service.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [FrontendServiceService]
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'Monster Hunter Weapon Roulette';
 
-  @Input()
-  weaponText!: string;
-
-  constructor(private frontEndService: FrontendServiceService) {
-    this.weaponText = ' ';
-  }
+  constructor(private frontEndService: FrontendServiceService) { }
 
   spinWheel(){
-    this.frontEndService.getARandomWeapon();
+    this.frontEndService.getWeapon();
   }
 }

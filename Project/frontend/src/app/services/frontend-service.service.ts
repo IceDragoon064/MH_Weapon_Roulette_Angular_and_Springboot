@@ -1,10 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { FrontendGetServiceService } from './frontend-get-service.service';
+import { FrontendPostServiceService } from './frontend-post-service.service';
+import { WeaponTextComponent } from '../components/weapon-text/weapon-text.component';
 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
+    'responseType': 'text'
   })
 }
 
@@ -13,11 +16,16 @@ const httpOptions = {
 })
 export class FrontendServiceService {
 
-  springUrl = 'http://localhost:8080';
+  constructor(
+    private frontendPost: FrontendPostServiceService,
+    private frontEndGet: FrontendGetServiceService,
+    private wTextComponent: WeaponTextComponent)
+    { }
 
-  constructor(private http:HttpClient) { }
-
-  getARandomWeapon():Observable<any>{
-    return this.http.get<any>(`${this.springUrl}/getWeapon`, httpOptions);
+  getWeapon(){
+    this.frontEndGet.getARandomWeapon().subscribe(Response =>{
+      this.wTextComponent.setText(Response);
+    });
   }
+
 }
