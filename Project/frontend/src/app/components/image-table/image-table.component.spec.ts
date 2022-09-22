@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WheelComponent } from './wheel.component';
+import { ImageTableComponent } from './image-table.component';
 
-describe('WheelComponent', () => {
-  let component: WheelComponent;
-  let fixture: ComponentFixture<WheelComponent>;
+describe('ImageTableComponent', () => {
+  let component: ImageTableComponent;
+  let fixture: ComponentFixture<ImageTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WheelComponent ]
+      declarations: [ ImageTableComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WheelComponent);
+    fixture = TestBed.createComponent(ImageTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

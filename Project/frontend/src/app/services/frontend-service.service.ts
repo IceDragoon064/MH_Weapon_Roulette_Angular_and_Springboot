@@ -28,4 +28,10 @@ export class FrontendServiceService {
     });
   }
 
+  getWeaponNoDuplicate(){
+    this.frontEndGet.getARandomWeaponNoDuplicate().subscribe(Response => {
+      this.wTextComponent.setText(Response);
+    })
+  }
+
 }

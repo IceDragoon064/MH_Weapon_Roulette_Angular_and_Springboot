@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FrontendServiceService } from './services/frontend-service.service';
 
 @Component({
@@ -8,11 +8,34 @@ import { FrontendServiceService } from './services/frontend-service.service';
   providers: [FrontendServiceService]
 })
 export class AppComponent {
-  title = 'Monster Hunter Weapon Roulette';
+  title = 'Monster Hunter Weapon Randomizer';
 
-  constructor(private frontEndService: FrontendServiceService) { }
+  isDuplicateChecked: boolean;
 
+  constructor(private frontEndService: FrontendServiceService) {
+    this.isDuplicateChecked = false;
+  }
+
+  ngOnInit(){
+
+  }
+  duplicateToggle(){
+    this.setDuplicateValue(!this.isDuplicateChecked);
+  }
   spinWheel(){
-    this.frontEndService.getWeapon();
+    if(this.isDuplicateChecked == true){
+      this.frontEndService.getWeaponNoDuplicate();
+    } else{
+      this.frontEndService.getWeapon();
+    }
+
+  }
+
+  setDuplicateValue(value: boolean){
+    this.isDuplicateChecked = value;
+  }
+
+  getDuplicateValue(){
+    return this.isDuplicateChecked;
   }
 }

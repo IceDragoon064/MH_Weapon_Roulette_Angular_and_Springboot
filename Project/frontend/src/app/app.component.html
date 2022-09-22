@@ -1,7 +1,8 @@
 <div class="center" id="divBorder">
-  <h1 class="centerText">Monster Hunter Weapon Roulette</h1>
-  <app-wheel class="centerText"></app-wheel>
+  <h1 class="centerText">Monster Hunter Weapon Randomizer</h1>
+  <app-image-table></app-image-table>
+  <br>
+  <app-toggle id="duplicate" (click)="duplicateToggle()"></app-toggle>No duplicate
   <app-weapon-text></app-weapon-text>
   <app-button class="center" text="Get random weapon" (click)="spinWheel()"></app-button>
 </div>
-

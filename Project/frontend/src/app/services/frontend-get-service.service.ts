@@ -21,4 +21,8 @@ export class FrontendGetServiceService {
   getARandomWeapon(){
     return this.http.get(`${this.springUrl}/getWeapon`, {responseType: 'text'});
   }
+
+  getARandomWeaponNoDuplicate(){
+    return this.http.get(`${this.springUrl}/getWeapon/noDuplicate`, {responseType: 'text'});
+  }
 }

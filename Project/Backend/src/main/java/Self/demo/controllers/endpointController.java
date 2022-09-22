@@ -18,4 +18,9 @@ public class endpointController {
     public String getSomething(){
         return randomService.getRandom();
     }
+
+    @GetMapping(value = "/getWeapon/noDuplicate")
+    public String getWeaponNoDuplicate(){
+        return randomService.getRandomNoDup();
+    }
 }
