@@ -30,7 +30,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     RouterModule,
   ],
-  providers: [WeaponTextComponent],
+  providers: [WeaponTextComponent, ImageTableComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,13 +5,17 @@ img{
 }
 
 table {
+  margin-left: auto;
+  margin-right: auto;
   border-collapse: collapse;
-  width: 100%;
+  table-layout: fixed;
+  width: 95%;
+
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 3px solid black;
   text-align: center;
-  padding: 0;
+  background: rgb(186,191,93);
+  background: linear-gradient(360deg, rgba(186,191,93,1) 0%, rgba(249,255,188,1) 100%);
 }
-

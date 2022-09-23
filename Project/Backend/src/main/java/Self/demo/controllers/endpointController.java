@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import Self.demo.models.Weapon;
 import Self.demo.services.RandomService;
 
 @RestController
@@ -15,12 +16,12 @@ public class endpointController {
     private RandomService randomService;
 
     @GetMapping(value = "/getWeapon")
-    public String getSomething(){
-        return randomService.getRandom();
+    public ResponseEntity<Weapon> getSomething(){
+        return new ResponseEntity<>(randomService.getRandom(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/getWeapon/noDuplicate")
-    public String getWeaponNoDuplicate(){
+    public Weapon getWeaponNoDuplicate(){
         return randomService.getRandomNoDup();
     }
 }

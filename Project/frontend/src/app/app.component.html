@@ -1,8 +1,23 @@
 <div class="center" id="divBorder">
-  <h1 class="centerText">Monster Hunter Weapon Randomizer</h1>
+  <img class="imageCenter" src="../assets/images/Monster_Hunter_logo_black.svg.png">
+  <h1 class="centerText">Weapon Randomizer</h1>
   <app-image-table></app-image-table>
   <br>
-  <app-toggle id="duplicate" (click)="duplicateToggle()"></app-toggle>No duplicate
   <app-weapon-text></app-weapon-text>
-  <app-button class="center" text="Get random weapon" (click)="spinWheel()"></app-button>
+  <br>
+  <table class="extraOption">
+    <tr>
+      <th class="header">Extra Options</th>
+    </tr>
+    <tr>
+      <td>
+        <app-toggle id="duplicate" (click)="duplicateToggle()"></app-toggle>No duplicate
+      </td>
+    </tr>
+    <tr>
+      <td style="align-items: center;">
+        <app-button text="Get random weapon" (click)="spinWheel()"></app-button>
+      </td>
+    </tr>
+  </table>
 </div>

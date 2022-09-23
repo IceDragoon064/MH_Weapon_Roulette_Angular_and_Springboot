@@ -1,6 +1,7 @@
 package Self.demo.models;
 
 public class Weapon {
+    /* 
     private String[] weaponArray = {
         "Great Sword",
         "Long Sword",
@@ -17,12 +18,28 @@ public class Weapon {
         "Heavy Bowgun",
         "Bow",
     };
+    */
+    private int id;
+    private String weaponName;
 
-    public Weapon() {
-        
+    public Weapon(int id, String name) {
+        this.id = id;
+        this.weaponName = name;
     }
 
-    public String getAWeaponByIndex(int i){
-        return weaponArray[i];
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setWeaponName(String weaponName) {
+        this.weaponName = weaponName;
+    }
+
+    public String getWeaponName() {
+        return weaponName;
     }
 }
