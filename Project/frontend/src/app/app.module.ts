@@ -27,10 +27,9 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
     RouterModule,
   ],
-  providers: [WeaponTextComponent, ImageTableComponent],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

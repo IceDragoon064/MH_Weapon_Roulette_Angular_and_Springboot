@@ -5,19 +5,26 @@
   <br>
   <app-weapon-text></app-weapon-text>
   <br>
+
   <table class="extraOption">
     <tr>
       <th class="header">Extra Options</th>
     </tr>
+
     <tr>
       <td>
         <app-toggle id="duplicate" (click)="duplicateToggle()"></app-toggle>No duplicate
       </td>
     </tr>
+
     <tr>
-      <td style="align-items: center;">
+      <td class="buttonHold">
         <app-button text="Get random weapon" (click)="spinWheel()"></app-button>
+      </td>
+      <td class="buttonHold">
+        <app-button text="Reset roll count" (click)="resetCounter()"></app-button>
       </td>
     </tr>
   </table>
+
 </div>

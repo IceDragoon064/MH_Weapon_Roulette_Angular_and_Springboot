@@ -41,4 +41,8 @@ export class FrontendServiceService {
     })
   }
 
+  resetCounter(){
+    this.imageTable.resetCount();
+  }
+
 }

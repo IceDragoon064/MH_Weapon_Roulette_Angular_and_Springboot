@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-weapon-text',
@@ -10,7 +10,6 @@ export class WeaponTextComponent implements OnInit {
 
   weaponText: string;
   weaponLink: string;
-
   weaponImg: string[] = [
     '../../assets/images/greatsword.png',
     '../../assets/images/longsword.png',
@@ -28,7 +27,6 @@ export class WeaponTextComponent implements OnInit {
     '../../assets/images/bow.png',
     '../../assets/images/unnamed.png'
   ];
-
 
   constructor() {
     this.weaponLink = this.weaponImg[14];

@@ -28,20 +28,24 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-button{
-  display: block;
-  margin: auto;
+.buttonRow{
+  align-items: center;
 }
-
 .extraOption {
   border-collapse: collapse;
+  border: 1px solid black;
   width: 100%;
+  table-layout: fixed;
   background: rgb(115,0,0);
   background: linear-gradient(360deg, rgba(115,0,0,1) 0%, rgba(255,138,138,1) 100%);
 }
 
-td, th {
-  border: 3px solid black;
+.buttonHold{
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+td, th, tr {
   padding: 10px;
 }
 

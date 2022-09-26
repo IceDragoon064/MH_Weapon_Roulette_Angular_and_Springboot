@@ -15,20 +15,23 @@ export class AppComponent {
   constructor(private frontEndService: FrontendServiceService) {
     this.isDuplicateChecked = false;
   }
-
-  ngOnInit(){
-
-  }
+/*
+  ngOnInit(){ }
+*/
   duplicateToggle(){
     this.setDuplicateValue(!this.isDuplicateChecked);
   }
+
   spinWheel(){
     if(this.isDuplicateChecked == true){
       this.frontEndService.getWeaponNoDuplicate();
     } else{
       this.frontEndService.getWeapon();
     }
+  }
 
+  resetCounter(){
+    this.frontEndService.resetCounter();
   }
 
   setDuplicateValue(value: boolean){

@@ -31,7 +31,7 @@ export class ImageTableComponent implements OnInit {
   }
 
   incrementCount(index: number){
-    this.rollCount[index] += 1;
+    this.rollCount[index]++;
     document.getElementById(index.toString())!.innerHTML = "Rolled: " + this.rollCount[index].toString();
   }
 
