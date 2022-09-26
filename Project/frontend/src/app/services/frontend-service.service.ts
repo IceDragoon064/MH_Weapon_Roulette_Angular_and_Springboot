@@ -45,4 +45,8 @@ export class FrontendServiceService {
     this.imageTable.resetCount();
   }
 
+  checkForUpdate(){
+    this.imageTable.loadCount();
+  }
+
 }

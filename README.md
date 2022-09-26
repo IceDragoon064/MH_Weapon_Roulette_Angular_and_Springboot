@@ -29,6 +29,12 @@ If there is a duplicate, backend will call the roulette to roll again.
 
 This process will repeat until a new weapon has been chosen.
 _____
-Level 3 - User authentication
+Level 3 - Local cache
+
+For every roll, the frontend will update the information and save/update to a local cache. 
+
+The user should be able to refresh the window and have their roll count the same before refreshing.
+_____
+Level 4 - User authentication
 
 At this level, basic user login, logout, and registration on the frontend will be implemented.

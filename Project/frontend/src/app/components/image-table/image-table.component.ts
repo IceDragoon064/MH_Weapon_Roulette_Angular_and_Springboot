@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-image-table',
@@ -6,6 +6,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./image-table.component.css']
 })
 export class ImageTableComponent implements OnInit {
+  private rollDat: string = '';
 
   rollCount: number[] = [
     0,  // Great Sword
@@ -27,12 +28,34 @@ export class ImageTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.loadCount;
 
   }
 
   incrementCount(index: number){
-    this.rollCount[index]++;
+    this.rollCount[index] += 1;
     document.getElementById(index.toString())!.innerHTML = "Rolled: " + this.rollCount[index].toString();
+    console.log(this.rollCount[index]);
+    this.rollDat = this.rollCount.toString();
+    localStorage.setItem('rollData', JSON.stringify(this.rollDat).replace(/[\[\]"']+/g,''));
+    console.log(JSON.stringify(this.rollDat));
+  }
+
+  loadCount(){
+    console.log("Checking for saved info");
+    var data = localStorage.getItem('rollData');
+    if(data != null){
+      // Turn string into string array
+      var newString = data?.split(',').map(function(roll){
+        return roll;
+      });
+      console.log(newString);
+      for(let i = 0; i < this.rollCount.length; i++){
+        console.log("Index: " + i + " Count: " + newString[i]);
+        this.rollCount[i] = Number(newString[i]);
+        document.getElementById(i.toString())!.innerHTML = "Rolled: " + this.rollCount[i].toString();
+      }
+    }
   }
 
   resetCount(){
@@ -40,6 +63,8 @@ export class ImageTableComponent implements OnInit {
       this.rollCount[i] = 0;
       document.getElementById(i.toString())!.innerHTML = "Rolled: " + this.rollCount[i].toString();
     }
-  }
 
+    localStorage.setItem('rollData', JSON.stringify(this.rollCount).replace(/[\[\]"']+/g,''));
+    console.log(JSON.stringify(localStorage.getItem('rollData')));
+  }
 }

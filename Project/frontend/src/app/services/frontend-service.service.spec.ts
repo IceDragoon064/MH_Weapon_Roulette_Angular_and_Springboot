@@ -4,23 +4,13 @@ import { ImageTableComponent } from '../components/image-table/image-table.compo
 import { WeaponTextComponent } from '../components/weapon-text/weapon-text.component';
 import { FrontendServiceService } from './frontend-service.service';
 import { FrontendGetServiceService } from './frontend-get-service.service';
-import { Weapon } from '../models/Weapon';
-import { of } from 'rxjs';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('FrontendServiceService', () => {
   let service: FrontendServiceService;
   let imgComponent: ImageTableComponent;
   let getService: FrontendGetServiceService;
   let wText: WeaponTextComponent;
-  let httpMock: HttpTestingController;
 
-  let testWeap: Weapon = {
-    id: 1,
-    weaponName: "Long Sword"
-  };
-
-  const mockGet = jasmine.createSpyObj('FrontendGetServiceService', ['getARandomWeapon', 'getARandomWeaponNoDuplicate']);
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
@@ -44,7 +34,6 @@ describe('FrontendServiceService', () => {
   it('should return Weapon from getWeaponNoDuplicate()', () => {
     expect(service.getWeaponNoDuplicate()).toBeTruthy;
   })
-
 
   it('should reset count on imageTable from resetCounter()', () => {
     service.resetCounter();
