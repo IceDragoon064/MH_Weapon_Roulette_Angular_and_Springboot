@@ -1,10 +1,16 @@
 <table>
   <tr>
-    <th id="weaponLabel">{{weaponText}}</th>
+    <th class="random" id="weaponLabel">{{weaponText}}</th>
+    <th class="history">Last 10 Roll History</th>
   </tr>
   <tr>
-    <th>
+    <td class="random">
       <img id="weaponIcon" [src] ="weaponLink">
-    </th>
+    </td>
+    <td class="history">
+      <ol type=1 class="divHistory" id="rollHistory">
+        <li *ngFor="let weapon of historyList; trackBy:showHistory">{{weapon}}</li>
+      </ol>
+    </td>
   </tr>
 </table>

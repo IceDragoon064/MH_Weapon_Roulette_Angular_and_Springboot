@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RandomService {
+    private int indexNum = 0;
     private String[] weaponL = {
         "Great Sword",
         "Long Sword",
@@ -22,10 +23,7 @@ public class RandomService {
         "Bow",
     };
 
-    private int indexNum = 0;
-
     public Weapon getRandom(){
-        
         Random rand = new Random();
         int randomInt = rand.nextInt(13) + 1;
         Weapon weapon = new Weapon(randomInt, weaponL[randomInt]);
@@ -52,5 +50,4 @@ public class RandomService {
     private int getIndex(){
         return this.indexNum;
     }
-
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Weapon } from 'src/app/models/Weapon';
 
 @Component({
   selector: 'app-weapon-text',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class WeaponTextComponent implements OnInit {
-
-  weaponText: string;
-  weaponLink: string;
+  weaponText: string = '';
+  weaponLink: string = '';
   weaponImg: string[] = [
     '../../assets/images/greatsword.png',
     '../../assets/images/longsword.png',
@@ -28,12 +28,17 @@ export class WeaponTextComponent implements OnInit {
     '../../assets/images/unnamed.png'
   ];
 
+  historyList: string[] = [];
+  temp: string[] =[];
+
   constructor() {
+    this.loadHistory();
+  }
+
+  ngOnInit(): void {
     this.weaponLink = this.weaponImg[14];
     this.weaponText = "? ? ?";
   }
-
-  ngOnInit(): void { }
 
   setText(text: string){
     this.weaponText = text;
@@ -43,5 +48,56 @@ export class WeaponTextComponent implements OnInit {
   setImage(index: number){
     this.weaponLink = this.weaponImg[index];
     document.getElementById("weaponIcon")!.setAttribute('src', this.weaponLink);
+  }
+
+  getHistory(){
+    return this.historyList;
+  }
+
+  setHistory(weapon: string){
+    //If array has 10 elements
+    console.log("Adding " + weapon);
+    console.log(this.historyList.length);
+    if(this.historyList.length == 10){
+      this.historyList.shift();
+      this.historyList.push(weapon);
+    }
+    if(this.historyList.length < 10 && this.historyList.length >= 0) {
+      this.historyList[this.historyList.length] = weapon;
+    }
+    console.log("New array");
+    console.log(this.historyList);
+    this.saveHistory(this.historyList);
+  }
+
+  saveHistory(data: string[]){
+    this.historyList = data;
+    localStorage.setItem('weaponHistory', JSON.stringify(this.getHistory()).replace(/[\[\]"']+/g,''));
+  }
+
+  resetHistory(){
+    for(let i = 0; i < this.historyList.length; i++){
+      delete this.historyList[i];
+    }
+    this.historyList = [];
+    localStorage.setItem('weaponHistory', JSON.stringify(this.getHistory()).replace(/[\[\]"']+/g,''));
+  }
+
+  loadHistory(){
+    var retrievedHistory = localStorage.getItem('weaponHistory');
+    if(retrievedHistory!.length > 0) {
+      var convertedHistory = retrievedHistory!.split(',').map(function(roll){
+        return roll;
+      });
+      for(let i = 0; i < convertedHistory.length; i++){
+        this.historyList.push(convertedHistory[i]);
+      }
+      console.log(this.historyList);
+      this.showHistory();
+    }
+  }
+
+  showHistory(){
+    return this.historyList;
   }
 }

@@ -29,6 +29,7 @@ export class FrontendServiceService {
     this.frontEndGet.getARandomWeapon().subscribe(Response =>{
       this.wTextComponent.setText(Response.weaponName);
       this.wTextComponent.setImage(Response.id);
+      this.wTextComponent.setHistory(Response.weaponName);
       this.imageTable.incrementCount(Response.id);
     });
   }
@@ -37,16 +38,21 @@ export class FrontendServiceService {
     this.frontEndGet.getARandomWeaponNoDuplicate().subscribe(Response => {
       this.wTextComponent.setText(Response.weaponName);
       this.wTextComponent.setImage(Response.id);
+      this.wTextComponent.setHistory(Response.weaponName);
       this.imageTable.incrementCount(Response.id);
     })
   }
 
   resetCounter(){
     this.imageTable.resetCount();
+    this.wTextComponent.resetHistory();
   }
 
   checkForUpdate(){
     this.imageTable.loadCount();
   }
 
+  setUp(){
+    this.wTextComponent.loadHistory();
+  }
 }

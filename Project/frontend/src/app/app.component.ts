@@ -16,6 +16,7 @@ export class AppComponent {
 
   constructor(private frontEndService: FrontendServiceService) {
     this.isDuplicateChecked = false;
+
   }
 
   ngOnInit(): void{

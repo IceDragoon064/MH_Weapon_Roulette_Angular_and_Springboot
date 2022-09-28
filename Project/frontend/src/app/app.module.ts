@@ -7,6 +7,7 @@ import { WeaponTextComponent } from './components/weapon-text/weapon-text.compon
 import { ToggleComponent } from './components/toggle/toggle.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ImageTableComponent } from './components/image-table/image-table.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     HttpClientModule,
     RouterModule,
   ],

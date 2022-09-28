@@ -27,31 +27,25 @@ export class ImageTableComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.loadCount;
-
-  }
+  ngOnInit(): void { }
 
   incrementCount(index: number){
     this.rollCount[index] += 1;
     document.getElementById(index.toString())!.innerHTML = "Rolled: " + this.rollCount[index].toString();
-    console.log(this.rollCount[index]);
     this.rollDat = this.rollCount.toString();
+
+    //Save the rollDaa
     localStorage.setItem('rollData', JSON.stringify(this.rollDat).replace(/[\[\]"']+/g,''));
-    console.log(JSON.stringify(this.rollDat));
   }
 
   loadCount(){
-    console.log("Checking for saved info");
     var data = localStorage.getItem('rollData');
     if(data != null){
       // Turn string into string array
       var newString = data?.split(',').map(function(roll){
         return roll;
       });
-      console.log(newString);
       for(let i = 0; i < this.rollCount.length; i++){
-        console.log("Index: " + i + " Count: " + newString[i]);
         this.rollCount[i] = Number(newString[i]);
         document.getElementById(i.toString())!.innerHTML = "Rolled: " + this.rollCount[i].toString();
       }
@@ -63,8 +57,6 @@ export class ImageTableComponent implements OnInit {
       this.rollCount[i] = 0;
       document.getElementById(i.toString())!.innerHTML = "Rolled: " + this.rollCount[i].toString();
     }
-
     localStorage.setItem('rollData', JSON.stringify(this.rollCount).replace(/[\[\]"']+/g,''));
-    console.log(JSON.stringify(localStorage.getItem('rollData')));
   }
 }
